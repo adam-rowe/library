@@ -1,0 +1,29 @@
+
+<div class="container">
+  <h1>Listing Magazines</h1>
+
+
+  <%= link_to 'New Magazine', new_magazine_path %>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+    </tr>
+
+    <% @magazine.each do |magazine| %>
+      <tr>
+        <td><%= magazine.title %></td>
+        <td><%= magazine.text %></td>
+        <td><%= link_to 'Show', magazine_path(magazine) %></td>
+        <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_magazine_path(magazine) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+
+
+  </table>
+
+</div>

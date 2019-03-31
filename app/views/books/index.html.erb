@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Listing Books</h1>
+
+
+  <%= link_to 'New Book', new_book_path %>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+    </tr>
+
+    <% @book.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.text %></td>
+        <td><%= link_to 'Show', book_path(book) %></td>
+        <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
+
+<% form_tag books_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
