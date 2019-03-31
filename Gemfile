@@ -91,10 +91,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
-  # Use sqlite3 as the database 
+  # Use sqlite3 as the database
   gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
 
 end
+
 
 group :production do
   gem 'pg'
