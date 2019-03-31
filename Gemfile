@@ -20,6 +20,10 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+# Use sqlite3 as the database
+gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec",  group: :development
+gem 'pg', group: :production # Added postgres and made it production only.
+gem 'rails_12factor'
 
 #added gems
 #bootstrap gem
@@ -89,15 +93,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-#for local
-group :development do
-  # Use sqlite3 as the database
-  gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
-
-  end
-
-  group :production do
-      gem 'pg'
-      gem 'rails_12factor'
-    end
